@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --clr: rgb(255, 0, 0);
+    --bg-gradient: linear-gradient(135deg, white, white);
+    --drop-color: rgba(255, 0, 0, 0.7);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Chúc mừng Giáng sinh */
+.container {
+    position: relative;
+    top: 100px;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.container .cloud h1,
+.container .cloud h2 {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: var(--clr);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 174, 0.8);
+    animation: glowing 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 0, 174, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(255, 0, 174, 1);
+    }
+}
+
+/* Hiệu ứng chim bay */
+.birds-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.bird {
+    position: absolute;
+    font-size: 1.5em;
+    animation: fly 10s linear infinite;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateX(-100px) translateY(50px) scale(1);
+    }
+    50% {
+        transform: translateX(100vw) translateY(200px) scale(1.5);
+    }
+    100% {
+        transform: translateX(100px) translateY(-50px) scale(1);
+    }
+}
+
+.bird.reverse {
+    animation: fly-reverse 12s linear infinite;
+}
+
+@keyframes fly-reverse {
+    0% {
+        transform: translateX(100vw) translateY(100px) scale(1.5);
+    }
+    50% {
+        transform: translateX(-100px) translateY(250px) scale(1);
+    }
+    100% {
+        transform: translateX(100vw) translateY(150px) scale(1.2);
+    }
+}
+
+/* Hiệu ứng tuyết */
+.snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.snowflake {
+    position: absolute;
+    color: white;
+    font-size: 1.5em;
+    opacity: 0.7;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Cây thông Noel */
+.tree-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.tree {
+    position: relative;
+    width: 120px;
+    height: 150px;
+}
+
+.tree .star {
+    font-size: 2em;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tree-layer {
+    width: 100%;
+    height: 40px;
+    background-color: green;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+.tree-layer.layer1 {
+    top: 0;
+    width: 100%;
+}
+
+.tree-layer.layer2 {
+    top: 40px;
+    width: 90%;
+}
+
+.tree-layer.layer3 {
+    top: 80px;
+    width: 70%;
+}
+
+/* Ông già Noel */
+.santa {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    z-index: 10;
+}
+
+/* Hiệu ứng bông tuyết rơi */
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Phong cách bông tuyết */
+.snowflake {
+    position: absolute;
+    top: 0;
+    font-size: 1.5em;
+    animation: fall linear infinite;
+}
+
+/* Tạo hiệu ứng chim bay (nếu vẫn muốn giữ) */
+/*
+.bird {
+    position: absolute;
+    font-size: 1.5em;
+    animation: fly 10s linear infinite;
+}
+*/
+/* Chim bay ngược lại */
+.bird.reverse {
+    animation: fly-reverse 12s linear infinite;
+}
+
+/* Hiệu ứng chim bay */
+@keyframes fly {
+    0% {
+        transform: translateX(-100px) translateY(50px) scale(1);
+    }
+    50% {
+        transform: translateX(100vw) translateY(200px) scale(1.5);
+    }
+    100% {
+        transform: translateX(100px) translateY(-50px) scale(1);
+    }
+}
+
+/* Chim bay ngược lại */
+@keyframes fly-reverse {
+    0% {
+        transform: translateX(100vw) translateY(100px) scale(1.5);
+    }
+    50% {
+        transform: translateX(-100px) translateY(250px) scale(1);
+    }
+    100% {
+        transform: translateX(100vw) translateY(150px) scale(1.2);
+    }
+}

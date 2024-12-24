@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển Trang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #e8f0fe, #bbdefb);
+            flex-direction: column;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            color: #fff;
+            background-color: #ff0095;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 0, 0, 0.6);
+            clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 70%, 18% 100%, 0% 35%);
+            animation: fade 1.5s ease-out forwards;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2) translateY(-50px);
+            }
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            color: white;
+            padding: 10px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nút chuyển trang -->
+    <button id="navigate-button">Hãy nhấn vào đây nè hihi</button>
+
+    <!-- Nhạc nền -->
+    <audio id="background-audio" loop autoplay>
+        <source src="noel.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Footer -->
+    <footer>
+        <img src="https://i.pinimg.com/originals/c5/ee/60/c5ee60e6f1766167e34d7f06e3ae20dc.gif" width="300" height="300" alt="Icon 1">
+        <img src="https://i.pinimg.com/originals/41/c3/41/41c3411c379878f87a1fbe9c557c4ef8.gif" width="300" height="300" alt="Icon 2">
+    </footer>
+
+    <script>
+        // Phát nhạc khi tải trang
+        const audio = document.getElementById('background-audio');
+
+        // Hiệu ứng trái tim khi hover
+        const button = document.getElementById('navigate-button');
+
+        button.addEventListener('mouseover', function (e) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = `${e.offsetX - 10}px`;
+            heart.style.top = `${e.offsetY - 10}px`;
+            button.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 1500);
+        });
+
+        // Chuyển trang khi click
+        button.addEventListener('click', function () {
+            audio.pause();
+            window.location.href = "main.html"; // URL đích
+        });
+    </script>
+</body>
+
+</html>
